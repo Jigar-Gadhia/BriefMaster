@@ -161,3 +161,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+#api Data
+apiData.js
