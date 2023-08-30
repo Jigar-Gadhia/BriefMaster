@@ -35,6 +35,7 @@ npm install
 https://www.meaningcloud.com/developer/login
 ```
 2. Once you are logged in, click on APIS as per the below image
+3. 
    
 
 
