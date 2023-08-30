@@ -36,11 +36,7 @@ https://www.meaningcloud.com/developer/login
 ```
 2. Once you are logged in, click on APIS as per the below image
    
-![image](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/e28aee70-3b66-4efc-821e-f48044e9dfee)
 
-3. Scroll down to Summarization and click on it.
-
-![image](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/a0958fd1-a222-4551-bcea-516d5baed158)
 
 
 4. Click on Test Console.
