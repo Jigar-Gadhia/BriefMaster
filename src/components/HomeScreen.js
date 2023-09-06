@@ -146,15 +146,11 @@ export class HomeScreen extends Component {
         <Icon name='paper-plane' fill="white" style={{ width: 22, height: 18 }} />
     );
 
-    CloseIcon = () => {
-        <Icon name="close" fill="white" />
-    }
-
     render() {
 
         return (
             <Layout style={Styles.container}>
-                <FlashMessage position="center" autoHide={false} floating={true} />
+                <FlashMessage accessibilityHint='This flash message indicates that you are offline' position="center" autoHide={false} floating={true} />
                 <Layout style={Styles.header}>
                     <Text style={Styles.header_texts}>Remaining Credits: {!this.state.Rcredits ? "error" : this.state.Rcredits}</Text>
                 </Layout>
@@ -164,7 +160,8 @@ export class HomeScreen extends Component {
                             style={Styles.card_background}
                             onLongPress={() => {
                                 this.state.data != "" ? Clipboard.setString(this.state.data.toString()) : null
-                                this.state.data != "" ? ToastAndroid.show("Text copied to clipboard", ToastAndroid.SHORT) : ToastAndroid.show("Message is empty", ToastAndroid.SHORT)
+                                this.state.data != "" ? ToastAndroid.show("Text copied to clipboard", ToastAndroid.SHORT) :
+                                    ToastAndroid.show("Message is empty", ToastAndroid.SHORT)
                             }}
                             status={this.state.offline == false || this.state.error == true ? 'danger' :
                                 !this.state.data ? 'warning' : 'success'}>
@@ -187,7 +184,8 @@ export class HomeScreen extends Component {
                 </Layout>
                 <Layout style={Styles.Input_layout}>
                     <Input
-                        accessoryRight={this.CloseIcon}
+                        accessibilityHint='Enter a paragraph which you wnat to summarize'
+                        accessibilityLabel='Text input'
                         allowFontScaling={false}
                         ref={this.text}
                         multiline
@@ -199,6 +197,8 @@ export class HomeScreen extends Component {
                     />
                     <Input
                         allowFontScaling={false}
+                        accessibilityLabel='Input Text'
+                        accessibilityHint='Enter the length of summarized sentenses'
                         keyboardType='number-pad'
                         ref={this.text}
                         size='large'
@@ -207,7 +207,7 @@ export class HomeScreen extends Component {
                         placeholder='S'
                         onChangeText={nextValue => this.setState({ sen: nextValue })}
                     />
-                    <Button onPress={() => this.validations()} style={Styles.Send}
+                    <Button accessibilityLabel='Send Button' accessibilityHint='Once you tap on this button, it will send the texts' onPress={() => this.validations()} style={Styles.Send}
                         accessoryRight={this.SendIcon}
                     />
                 </Layout>
