@@ -1,79 +1,126 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# BriefMaster - React Native Text Summaries App
+![screen](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/9d1e3ae4-9d4a-4058-bfd9-6b6b7f4a209c)
 
-# Getting Started
+BriefMaster is a mobile application developed using React Native that aims to simplify the process of creating and accessing text summaries. This app allows users to efficiently generate concise summaries of longer texts, making it a valuable tool for students, researchers, professionals, and anyone who needs to quickly grasp the key points of a document.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- **Text Summarization**: BriefMaster utilizes advanced natural language processing techniques to generate accurate and coherent text summaries from longer inputs.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **User-Friendly Interface**: The app offers an intuitive and user-friendly interface, ensuring a seamless experience for users while creating or reading summaries.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Customization Options**: BriefMaster allows users to customize the length and style of the summaries according to their preferences.
 
-```bash
-# using npm
-npm start
+## Installation
 
-# OR using Yarn
-yarn start
+To run the BriefMaster app on your local machine, follow these steps:
+
+1. Git clone this project with following command
+```
+git clone https://github.com/Jigar-Gadhia/BriefMaster.git
+```
+2. Navigate to the project directory:
+```
+cd BriefMaster
+```
+3. Install the required dependencies:
+```
+npm install
 ```
 
-## Step 2: Start your Application
+## Get the API
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+1. Open the following URL in your web browser and login/signup with your MeaningCloud account
+```
+https://www.meaningcloud.com/developer/login
+```
+2. Once you are logged in, click on APIS as per the below image
 
-### For Android
+![image](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/59ec09ac-b92e-4cb8-988b-8421c2d11d8d)
 
-```bash
-# using npm
+
+3. Scroll down and click on Summarization as the below image
+
+![image](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/e4400453-5721-4911-abbf-8c1e63dd0e77)
+
+4. Click on Test Console
+
+![image](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/59217b97-e518-46a7-81d4-d52a16ee6024)
+
+5. Copy data of Key and Endpoint and place it in HomeScreen Component.
+   
+![image](https://github.com/Jigar-Gadhia/BriefMaster/assets/65450057/85af642c-c29a-4316-8b72-aa68bb7e4355)
+
+6. You are done with the api.
+
+### Note: Copy api key and url in saperate file or in .env for security reason.
+
+## Run Android
+
+Open command prompt / terminal inside the root directory of the project and run following command :
+
+   ```
+   cd android/app
+   ```
+   
+  Create debug keystore :
+   
+   ```
+   keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+   ```
+   
+   Make sure app/build.gradle file contain following details:
+   ```
+android {
+    ...
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        ...
+    }
+    ...
+    signingConfigs {
+        debug {
+            storeFile file('relative/path/to/your/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        ...
+    }
+    ...
+}
+   ```
+ Clean the project by running following commands in terminal / command prompt from the project's root directory: 
+```
+cd android
+```
+For windows
+```
+gradlew clean 
+```
+For Linux / Mac
+```
+./gradlew clean
+```
+      
+  Run Android :
+```
 npm run android
-
-# OR using Yarn
+# or
 yarn android
+# or
+npx react-native run-android # I personally use this command
 ```
+# Dependencies
+Please refer [Package.json](https://github.com/Jigar-Gadhia/BriefMaster/blob/main/package.json) for more information
 
-### For iOS
+# Development Dependencies
+Please refer [Package.json](https://github.com/Jigar-Gadhia/BriefMaster/blob/main/package.json) for more information
 
-```bash
-# using npm
-npm run ios
+# License
+This project is licensed under the [MIT License](https://github.com/Jigar-Gadhia/BriefMaster/blob/main/LICENSE)
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+# Acknowledgments
+I would like to thank the contributors and all the open-source libraries that made this project possible, Aspecially [MeaningCloud](https://www.meaningcloud.com/) for providing amazing APIs.
